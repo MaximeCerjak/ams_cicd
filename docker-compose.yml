@@ -8,7 +8,7 @@ services:
     build: ./ams_back
     ports:
       - "6066:8080"
-    container_name: ams_back2024
+    container_name: mce_ams_back2024
     restart: always
     depends_on:
       - db
@@ -22,7 +22,7 @@ services:
   # Frontend Service
   ams_front:
     build: ./ams_front
-    container_name: ams_front2024
+    container_name: mce_ams_front2024
     ports:
       - "5056:80"
     restart: always
@@ -34,7 +34,7 @@ services:
   # Database Service (Mysql)
   db:
     image: mysql:latest
-    container_name: ams_bd_cont
+    container_name: mce_ams_bd_cont
     volumes:
       - ams_data2024:/var/lib/mysql
     restart: always
@@ -49,7 +49,7 @@ services:
   # PMA Service
   phpmyadmin:
     image: phpmyadmin
-    container_name: app_pmadmin_cont
+    container_name: mce_app_pmadmin_cont
     restart: always
     depends_on:
       - db
